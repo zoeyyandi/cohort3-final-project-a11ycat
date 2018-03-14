@@ -59,4 +59,3 @@ This project is licensed under a [Creative Commons Attribution 4.0 International
 
 * [PurpleBlooth](https://github.com/PurpleBooth/), for [their README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2/)
 * All the wonderful people of [bridge](http://bridgeschool.io/)
-
