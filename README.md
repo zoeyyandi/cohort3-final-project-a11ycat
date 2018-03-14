@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #  A11ycat
 [Project description here]
+=======
+#  a11ycat
+The user can log whether a location has various accessibility features, and then see other locations that have also been rated.
+>>>>>>> Update Read Me with project name and description
 
 ## Getting Started
 
