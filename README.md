@@ -1,4 +1,4 @@
-#  [Project Title]
+#  A11ycat
 [Project description here]
 
 ## Getting Started
