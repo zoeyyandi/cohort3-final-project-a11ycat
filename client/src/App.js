@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import apiService from "./shared/services/api-service";
+import { connect } from 'react-redux';
 import { ListItem } from "./ListItem/ListItem";
 import logo from "./logo.svg";
 import "./App.css";
+//import {thisAction, thatAction} from "./actions";
 
 export const locations = ["park", "coffee shop", "jungle"];
 class App extends Component {
@@ -36,3 +38,23 @@ class App extends Component {
 }
 
 export default App;
+
+// const mapStateToProps = state => ({
+//   something: state.something,
+// });
+
+// const mapDispatchToProps = {
+//   thisAction,
+//   thatAction
+// };
+
+//export default connect(mapStateToProps,mapDispatchToProps)(App);
+
+
+
+
+
+
+
+
+
