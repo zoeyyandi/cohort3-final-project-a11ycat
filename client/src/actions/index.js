@@ -1,10 +1,7 @@
-import axios from "axios";
-import {someUrl} from "../constants/urls"
+import {ACTION_TYPES} from "../constants/action-types";
 
-export const ACTION_TYPES = {
-  thisAction: 'THIS_ACTION',
-  thatAction: 'THAT_ACTION'
-};
+import {someUrl} from "../constants/urls";
+
 
 // Regular action creator: returns object
 export function thisAction(something) {
@@ -20,7 +17,7 @@ export function thisAction(something) {
 // object depending on ajax request resolution
 export function thatAction() {
   return function (dispatch) {
-    axios.get(someUrl)
+    fetch(someUrl)
       .then(response => {
         dispatch({
           type: ACTION_TYPES.thatAction,
