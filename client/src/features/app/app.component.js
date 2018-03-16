@@ -4,6 +4,8 @@ import logo from '../../logo.svg';
 import apiService from '../../shared/services/api-service';
 import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
+import { LocationRatingContainer } from "../location-rating/location-rating.container";
+
 
 const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 if (!googleMapsAPIKey)
@@ -22,9 +24,11 @@ export class App extends Component {
       });
     this.props.getLocation();
   }
+  
 
   render() {
     const { showAutoComplete, listLocations } = this.props;
+    const {thisAction,thatAction} = this.props;
     const showLocations =
       listLocations.length > 0 ? listLocations : defaultLocations;
 
@@ -37,10 +41,11 @@ export class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        
         <ul>
           {showLocations.map((location, index) => (
-            <ListItem key={index} locationName={location} />
-          ))}
+             <ListItem key={index} locationName={location} />
+           ))}
         </ul>
 
         <iframe
@@ -52,7 +57,19 @@ export class App extends Component {
         />
         <SearchBarContainer />
         {showAutoComplete && <AutoCompleteListContainer />}
+      
+        <div>
+          <br/><br/>
+          -------------------
+          <br/><br/>
+          This should be a new page, after clicking on "rate" button:
+          <br/><br/>
+          <LocationRatingContainer />
+        </div>
+
       </div>
+
+      
     );
   }
 }
