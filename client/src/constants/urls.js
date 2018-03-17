@@ -1,0 +1,1 @@
+export const someUrl = "https://something.com";
