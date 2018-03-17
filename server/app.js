@@ -14,12 +14,6 @@ import { errorHandler, notFoundHandler } from './middlewares';
 
 const app = express();
 
-
-var express = require('express'),
-    app = express(),
-// require and load dotenv
-require('dotenv').load();
-
 app.use(helmet());
 
 app.use(morgan("dev", { "stream": logger.stream }));

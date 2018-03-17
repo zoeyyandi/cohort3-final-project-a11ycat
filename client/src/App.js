@@ -15,6 +15,10 @@ const mapDispatchToProps = {
   thatAction
 };
 
+require('dotenv').config();
+const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+if (!googleMapsAPIKey) throw new Error("googleMapsAPIKey environment variable required");
+
 export const locations = ["park", "coffee shop", "jungle"];
 class App extends Component {
   componentDidMount() {
@@ -43,8 +47,15 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <ul>
-          {locations.map(location => <ListItem locationName={location} />)}
+          {locations.map((location, index) => <ListItem key={index} locationName={location} />)}
         </ul>
+
+        <iframe
+          width="600"
+          height="300"
+          title="map of Rangle"
+          src={`https://www.google.com/maps/embed/v1/place?key=${googleMapsAPIKey}&q=18+York+St, Toronto, Ontario`} allowFullScreen>
+        </iframe>
       </div>
     );
   }
