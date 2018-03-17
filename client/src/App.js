@@ -18,10 +18,6 @@ const mapDispatchToProps = {
 const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 if (!googleMapsAPIKey) throw new Error("googleMapsAPIKey environment variable required");
 
-require('dotenv').config();
-const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-if (!googleMapsAPIKey) throw new Error("googleMapsAPIKey environment variable required");
-
 export const locations = ["park", "coffee shop", "jungle"];
 class App extends Component {
   componentDidMount() {
