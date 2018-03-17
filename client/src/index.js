@@ -10,10 +10,6 @@ import './index.css';
 
 import reducer from './reducers';
 
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
-
 const store = createStore(
 	reducer,
 	applyMiddleware(thunk),
@@ -26,3 +22,5 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById("root")
 );
+
+registerServiceWorker();
