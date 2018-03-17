@@ -1,11 +1,11 @@
-import {ACTION_TYPES} from "../constants/action-types";
+import {ACTION_TYPES} from "./list-item.types";
 
 const INITIAL_STATE = {
   sampleKey1: [],
   sampleKey2: "something"
 };
 
-export const sampleReducer = (state = INITIAL_STATE, {type, payload}) => {
+export const listItemReducer = (state = INITIAL_STATE, {type, payload}) => {
   switch (type) {
     case ACTION_TYPES.thisAction:
       return {...state, ...{sampleKey1: payload}};
