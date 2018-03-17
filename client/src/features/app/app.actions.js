@@ -1,12 +1,10 @@
-import {ACTION_TYPES} from "../constants/action-types";
-
-import {someUrl} from "../constants/urls";
-
+import {APP_TYPES} from "./app.types";
+import {someUrl} from "../../constants/urls";
 
 // Regular action creator: returns object
 export function thisAction(something) {
   return {
-    type: ACTION_TYPES.thisAction,
+    type: APP_TYPES.thisAction,
     payload: {
       something
     }
@@ -20,7 +18,7 @@ export function thatAction() {
     fetch(someUrl)
       .then(response => {
         dispatch({
-          type: ACTION_TYPES.thatAction,
+          type: APP_TYPES.thatAction,
           payload: {
             something: response.results
           }

@@ -4,10 +4,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
-
-import App from './App';
+import {AppContainer} from './features/app/app.container';
 import './index.css';
-
 import reducer from './reducers';
 
 const store = createStore(
@@ -18,7 +16,7 @@ const store = createStore(
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App/>
+		<AppContainer/>
 	</Provider>,
 	document.getElementById("root")
 );
