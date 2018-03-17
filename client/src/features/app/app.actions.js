@@ -1,30 +1,12 @@
 import {APP_TYPES} from "./app.types";
-import {someUrl} from "../../constants/urls";
 
-// Regular action creator: returns object
-export function thisAction(something) {
-  return {
-    type: APP_TYPES.thisAction,
-    payload: {
-      something
-    }
-  }
-}
-
-// Thunk action creator: returns function that returns 
-// object depending on ajax request resolution
-export function thatAction() {
-  return function (dispatch) {
-    fetch(someUrl)
-      .then(response => {
+export function getUserLocation(){
+  return dispatch => {
+    const geolocation = navigator.geolocation;
+    geolocation.getCurrentPosition((position) => {
         dispatch({
-          type: APP_TYPES.thatAction,
-          payload: {
-            something: response.results
-          }
-        })
-      });
-
-  };
-
-}
+            type: APP_TYPES.getUserLocation,
+            payload: position
+    })
+  })
+}}
