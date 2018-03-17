@@ -1,4 +1,3 @@
-
 #  a11ycat
 The user can log whether a location has various accessibility features, and then see other locations that have also been rated.
 
