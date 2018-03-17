@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import "../../App.css";
-import {thisAction, thatAction} from "./app.actions";
 import { App } from './app.component'
+import {getLocation} from "./app.actions";
 
-const mapStateToProps = state => ({
-  something: state.something,
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {
-  thisAction,
-  thatAction
+    getLocation
 };
 
-export const AppContainer = connect(mapStateToProps,mapDispatchToProps)(App);
+export const AppContainer = connect(null,mapDispatchToProps)(App);

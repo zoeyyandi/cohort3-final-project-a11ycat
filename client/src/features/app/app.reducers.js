@@ -9,8 +9,8 @@ const INITIAL_STATE = {
 
 export const appReducer = (state = INITIAL_STATE, {type, payload}) => {
     switch (type) {
-      case APP_TYPES.getUserLocation:
-        return {...state, ...{userLocation: payload}};
+      case APP_TYPES.getUserLocationSuccess:
+        return {...state, ...{userLocation: {lat: payload["latitude"], lon: payload["longitude"]}}};
       default:
         return state;
     }

@@ -24,7 +24,5 @@ export function thatAction() {
           }
         })
       });
-
   };
-
 }

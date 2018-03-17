@@ -1,12 +1,5 @@
 import {APP_TYPES} from "./app.types";
+import {getUserLocation} from './../../utils/geoLocation'
 
-export function getUserLocation(){
-  return dispatch => {
-    const geolocation = navigator.geolocation;
-    geolocation.getCurrentPosition((position) => {
-        dispatch({
-            type: APP_TYPES.getUserLocation,
-            payload: position
-    })
-  })
-}}
+export const getLocation = () => getUserLocation(); 
+  
