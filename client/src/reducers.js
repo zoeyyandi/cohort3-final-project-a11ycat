@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import { listItemReducer } from "./features/list-item/list-item.reducers";
+import { appReducer } from "./features/app/app.reducers";
 
 
 export default combineReducers({
-	listItemReducer
+	appReducer
 });

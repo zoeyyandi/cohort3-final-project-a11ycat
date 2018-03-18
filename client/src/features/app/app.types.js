@@ -1,4 +1,4 @@
 export const APP_TYPES = {
-    thisAction: 'THIS_ACTION',
-    thatAction: 'THAT_ACTION'
+    getUserLocation: 'GET_USER_LOCATION',
+    getUserLocationSuccess: 'GET_USER_LOCATION_SUCCESS'
   };

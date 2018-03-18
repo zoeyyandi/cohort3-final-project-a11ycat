@@ -8,6 +8,7 @@ const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 if (!googleMapsAPIKey) throw new Error("googleMapsAPIKey environment variable required");
 export const locations = ["park", "coffee shop", "jungle"];
 
+
 export class App extends Component {
     componentDidMount() {
       apiService
@@ -18,6 +19,7 @@ export class App extends Component {
         .catch(function(error) {
           console.log(error);
         });
+      this.props.getLocation();
     }
   
     render() {
