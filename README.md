@@ -38,6 +38,7 @@ LOG_LEVEL=info # the server will use this log level to ignore anything not impor
 
 REACT_APP_API_HOST=http://localhost # the client will use this host to contact the server
 REACT_APP_API_PORT=3001 # the client will use this port to contact the server
+REACT_APP_GOOGLE_MAPS_API_KEY=<KEY HERE>
 ```
 
 ## Built With
