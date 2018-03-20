@@ -1,16 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { thisAction, thatAction } from './search-bar.actions';
+import { fetchLocations, updateSearchInput } from './search-bar.actions';
+import { SearchBar } from './search-bar.component';
+
+const _SearchBarContainer = ({
+  fetchLocations,
+  updateSearchInput,
+  searchInput
+}) => (
+  <SearchBar
+    fetchLocations={fetchLocations}
+    updateSearchInput={updateSearchInput}
+    inputValue={searchInput}
+  />
+);
 
 const mapStateToProps = state => ({
-  something: state.something
+  searchInput: state.searchBarReducer.searchInput
 });
 
 const mapDispatchToProps = {
-  thisAction,
-  thatAction
+  fetchLocations,
+  updateSearchInput
 };
 
-export const searchBarContainer = connect(mapStateToProps, mapDispatchToProps)(
-  SearchBarContainer
+export const SearchBarContainer = connect(mapStateToProps, mapDispatchToProps)(
+  _SearchBarContainer
 );

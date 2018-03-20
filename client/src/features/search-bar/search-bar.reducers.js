@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 export const searchBarReducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case SEARCH_BAR_TYPES.updateSearchInput:
-      return { ...state, searchInput: payload.searchString };
+      return { searchInput: payload.searchString };
     default:
       return state;
   }
