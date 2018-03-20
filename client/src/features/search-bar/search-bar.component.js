@@ -34,7 +34,9 @@ const SearchButton = Button.extend`
 export const SearchBar = ({
   fetchLocations,
   updateSearchInput,
-  inputValue
+  inputValue,
+  textSearch,
+  toggleAutoComplete
 }) => {
   const handleChange = event => {
     let input = event.target.value;
@@ -42,7 +44,11 @@ export const SearchBar = ({
     fetchLocations(input);
   };
 
-  const handleClick = event => {};
+  const handleClick = event => {
+    textSearch(inputValue);
+    updateSearchInput('');
+    toggleAutoComplete(false);
+  };
 
   return (
     <SearchContainer>

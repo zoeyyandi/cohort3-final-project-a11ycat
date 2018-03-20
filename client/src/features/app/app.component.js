@@ -8,7 +8,7 @@ import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-l
 const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 if (!googleMapsAPIKey)
   throw new Error('googleMapsAPIKey environment variable required');
-export const locations = ['park', 'coffee shop', 'jungle'];
+export const defaultLocations = ['park', 'coffee shop', 'jungle'];
 
 export class App extends Component {
   componentDidMount() {
@@ -24,7 +24,9 @@ export class App extends Component {
   }
 
   render() {
-    const { showAutoComplete } = this.props;
+    const { showAutoComplete, listLocations } = this.props;
+    const showLocations =
+      listLocations.length > 0 ? listLocations : defaultLocations;
 
     return (
       <div className="App">
@@ -36,7 +38,7 @@ export class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <ul>
-          {locations.map((location, index) => (
+          {showLocations.map((location, index) => (
             <ListItem key={index} locationName={location} />
           ))}
         </ul>
