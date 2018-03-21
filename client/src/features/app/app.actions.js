@@ -1,5 +1,3 @@
-import {APP_TYPES} from "./app.types";
-import {getUserLocation} from './../../utils/geoLocation'
+import { getUserLocation } from './../../utils/geoLocation';
 
-export const getLocation = () => getUserLocation(); 
-  
+export const getLocation = () => getUserLocation();
