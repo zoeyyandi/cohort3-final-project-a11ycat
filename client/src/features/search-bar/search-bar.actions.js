@@ -30,9 +30,7 @@ export const updateListItemLocations = locations => {
   };
 };
 
-export const fetchLocations = searchString => {
-  const lat = 43.639217;
-  const lng = -79.400414;
+export const fetchLocations = (searchString, lat, lng) => {
   const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
   const URL = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${searchString}&types=establishment&location=${lat},${lng}&radius=500&strictbounds&key=${APIkey}
@@ -53,9 +51,7 @@ export const fetchLocations = searchString => {
   };
 };
 
-export const textSearch = inputText => {
-  const lat = 43.639217;
-  const lng = -79.400414;
+export const textSearch = (inputText, lat, lng) => {
   const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
   const URL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${inputText}&location=${lat},${lng}&key=${APIkey}`;
   return dispatch => {

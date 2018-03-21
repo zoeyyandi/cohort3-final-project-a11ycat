@@ -13,7 +13,8 @@ const _SearchBarContainer = ({
   updateSearchInput,
   searchInput,
   textSearch,
-  toggleAutoComplete
+  toggleAutoComplete,
+  userLocation
 }) => (
   <SearchBar
     fetchLocations={fetchLocations}
@@ -21,11 +22,13 @@ const _SearchBarContainer = ({
     inputValue={searchInput}
     textSearch={textSearch}
     toggleAutoComplete={toggleAutoComplete}
+    userLocation={userLocation}
   />
 );
 
 const mapStateToProps = state => ({
-  searchInput: state.searchBarReducer.searchInput
+  searchInput: state.searchBarReducer.searchInput,
+  userLocation: state.appReducer.userLocation
 });
 
 const mapDispatchToProps = {

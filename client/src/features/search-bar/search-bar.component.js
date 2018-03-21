@@ -36,16 +36,17 @@ export const SearchBar = ({
   updateSearchInput,
   inputValue,
   textSearch,
-  toggleAutoComplete
+  toggleAutoComplete,
+  userLocation
 }) => {
   const handleChange = event => {
     let input = event.target.value;
     updateSearchInput(input);
-    fetchLocations(input);
+    fetchLocations(input, userLocation.lat, userLocation.lon);
   };
 
   const handleClick = event => {
-    textSearch(inputValue);
+    textSearch(inputValue, userLocation.lat, userLocation.lon);
     updateSearchInput('');
     toggleAutoComplete(false);
   };
