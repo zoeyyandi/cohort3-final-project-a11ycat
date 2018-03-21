@@ -4,8 +4,12 @@ import { App } from './app.component';
 import { getLocation } from './app.actions';
 import '../../App.css';
 
-const _AppContainer = ({ showAutoComplete, listLocations }) => (
-  <App showAutoComplete={showAutoComplete} listLocations={listLocations} />
+const _AppContainer = ({ showAutoComplete, listLocations, getLocation }) => (
+  <App
+    showAutoComplete={showAutoComplete}
+    listLocations={listLocations}
+    getLocation={getLocation}
+  />
 );
 
 const mapStateToProps = state => ({

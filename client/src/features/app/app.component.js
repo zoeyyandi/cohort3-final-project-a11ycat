@@ -20,7 +20,7 @@ export class App extends Component {
       .catch(function(error) {
         console.log(error);
       });
-    // this.props.getLocation();
+    this.props.getLocation();
   }
 
   render() {

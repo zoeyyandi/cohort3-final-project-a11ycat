@@ -23,7 +23,7 @@ export class AutoCompleteList extends Component {
 
   render() {
     return this.props.autoCompleteList.map((item, index) => (
-      <Anchor href="#!" key={index}>
+      <Anchor href="" key={index}>
         <Item
           ref={item => (this[index] = item)}
           onClick={e => this.handleClick(e, index)}

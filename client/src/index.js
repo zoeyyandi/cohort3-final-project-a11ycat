@@ -7,7 +7,6 @@ import registerServiceWorker from './registerServiceWorker';
 import { AppContainer } from './features/app/app.container';
 import './index.css';
 import reducer from './reducers';
-import { getLocation } from './features/app/app.actions';
 
 const store = createStore(
   reducer,
