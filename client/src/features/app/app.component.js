@@ -5,10 +5,8 @@ import apiService from '../../shared/services/api-service';
 import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
 import { LocationRatingContainer } from '../location-rating/location-rating.container';
+import { GoogleMap } from "../google-map/google-map.component";
 
-const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-if (!googleMapsAPIKey)
-  throw new Error('googleMapsAPIKey environment variable required');
 export const defaultLocations = ['park', 'coffee shop', 'jungle'];
 
 export class App extends Component {
@@ -44,14 +42,9 @@ export class App extends Component {
             <ListItem key={index} locationName={location} />
           ))}
         </ul>
+        <hr/>
+        <GoogleMap />
 
-        <iframe
-          width="600"
-          height="300"
-          title="map of Rangle"
-          src={`https://www.google.com/maps/embed/v1/place?key=${googleMapsAPIKey}&q=18+York+St, Toronto, Ontario`}
-          allowFullScreen
-        />
         <SearchBarContainer />
         {showAutoComplete && <AutoCompleteListContainer />}
 
