@@ -1,45 +1,54 @@
 import express from 'express';
 
-import SomeModel from '../models/someModel';
+import Ratings from '../models/ratingsModel';
 
 const router = express.Router();
 
-/* GET someModels listing. */
+/* GET Ratingss listing. */
 router.get('/', function(req, res, next) {
-    return SomeModel
-        // we are providing the empty object to mean we are not giving any constraints -- we want them all!
-        .find({})
-        .then(
-            someModels => res
-                .status(200) // explicitly set the status code to 200 to indicate the request was successful
-                .send(someModels)
-        )
-        .catch(err => next(err)); // if we get an error, propagate the error to the next middleware
+  return (
+    Ratings
+      // we are providing the empty object to mean we are not giving any constraints -- we want them all!
+      .find({})
+      .then(Ratings =>
+        res
+          .status(200) // explicitly set the status code to 200 to indicate the request was successful
+          .send(Ratings)
+      )
+      .catch(err => next(err))
+  ); // if we get an error, propagate the error to the next middleware
 });
 
-/* POST a someModel. (This will create one in the database, if successful) */
+/* POST a Ratings. (This will create one in the database, if successful) */
 router.post('/:name', function(req, res, next) {
-    const someModel = new SomeModel({ name: req.params.name });
+  const Ratings = new Ratings({ name: req.params.name });
 
-    someModel.save()
-        .then(
-            () => res
-                .status(201) // explicitly set the status code to 201 to indicate an entry was successfully created
-                .send(`Successfully created the model with name '${req.params.name}'! Try and view all the models now!`)
+  Ratings.save()
+    .then(() =>
+      res
+        .status(201) // explicitly set the status code to 201 to indicate an entry was successfully created
+        .send(
+          `Successfully created the model with name '${
+            req.params.name
+          }'! Try and view all the models now!`
         )
-        .catch(err => next(err));
+    )
+    .catch(err => next(err));
 });
 
-/* DELETE a someModel. (This will remove one in the database, if successful) */
+/* DELETE a Ratings. (This will remove one in the database, if successful) */
 router.delete('/:name', function(req, res, next) {
-    SomeModel.remove({name: req.params.name})
-        .then(
-            () => res
-                .status(200) // explicitly set the status code to 201 to indicate the request was successful
-                .send(`Successfully removed the model with name '${req.params.name}'! Try and view all the models now!`)
+  Ratings.remove({ name: req.params.name })
+    .then(() =>
+      res
+        .status(200) // explicitly set the status code to 201 to indicate the request was successful
+        .send(
+          `Successfully removed the model with name '${
+            req.params.name
+          }'! Try and view all the models now!`
         )
-        .catch(err => next(err)); // if we get an error, propagate the error to the next middleware
+    )
+    .catch(err => next(err)); // if we get an error, propagate the error to the next middleware
 });
 
 export default router;
-
