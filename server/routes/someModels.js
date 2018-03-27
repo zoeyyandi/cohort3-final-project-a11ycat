@@ -1,29 +1,44 @@
 import express from 'express';
 
-import Ratings from '../models/ratingsModel';
+import { Place, Ratings } from '../models/placesModel';
 
 const router = express.Router();
 
-/* GET Ratingss listing. */
+/* GET Places listing. */
+
 router.get('/', function(req, res, next) {
   return (
-    Ratings
+    Place
       // we are providing the empty object to mean we are not giving any constraints -- we want them all!
       .find({})
-      .then(Ratings =>
+      .then(places =>
         res
           .status(200) // explicitly set the status code to 200 to indicate the request was successful
-          .send(Ratings)
+          .send(places)
       )
       .catch(err => next(err))
   ); // if we get an error, propagate the error to the next middleware
 });
 
-/* POST a Ratings. (This will create one in the database, if successful) */
+/* POST a Places. (This will create one in the database, if successful) */
 router.post('/:name', function(req, res, next) {
-  const Ratings = new Ratings({ name: req.params.name });
+  const newPlace = new Place({
+    name: req.params.name,
+    lat: 2,
+    lon: 2,
+    ratings: [
+      new Ratings({
+        accessible_parking: false,
+        automatic_front_door: true,
+        front_door_ramp: true,
+        legible_signage: true,
+        service_animal_welcome: true
+      })
+    ]
+  });
 
-  Ratings.save()
+  newPlace
+    .save()
     .then(() =>
       res
         .status(201) // explicitly set the status code to 201 to indicate an entry was successfully created
@@ -36,9 +51,9 @@ router.post('/:name', function(req, res, next) {
     .catch(err => next(err));
 });
 
-/* DELETE a Ratings. (This will remove one in the database, if successful) */
+/* DELETE a Places. (This will remove one in the database, if successful) */
 router.delete('/:name', function(req, res, next) {
-  Ratings.remove({ name: req.params.name })
+  Place.remove({ name: req.params.name })
     .then(() =>
       res
         .status(200) // explicitly set the status code to 201 to indicate the request was successful
