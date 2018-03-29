@@ -12,7 +12,11 @@ if (!googleMapsAPIKey)
 
 const Map = withScriptjs(
   withGoogleMap(props => (
-    <GoogleMap defaultZoom={8} defaultCenter={props.coords}>
+    <GoogleMap
+      defaultZoom={15}
+      defaultCenter={props.coords}
+      gridSize={60}
+    >
       <Marker position={props.coords} />
     </GoogleMap>
   ))
@@ -28,7 +32,7 @@ export class GoogleMapsComponent extends Component {
           "&v=3.exp&libraries=geometry,drawing,places"
         }
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px` }} />}
+        containerElement={<div style={{ height: `600px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
         coords={this.props.userCoords}
       />
