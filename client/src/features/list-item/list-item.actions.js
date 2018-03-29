@@ -1,28 +1,16 @@
-import {ACTION_TYPES} from "./app.types";
-import {someUrl} from "../../constants/urls";
+import { updateListItemLocations } from '../search-bar/search-bar.actions';
 
-// Regular action creator: returns object
-export function thisAction(something) {
-  return {
-    type: ACTION_TYPES.thisAction,
-    payload: {
-      something
-    }
-  }
-}
+export const fetchInitialPlaces = (lat, lng) => {
+  const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  const URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&rankby=distance&key=${APIkey}`;
 
-// Thunk action creator: returns function that returns 
-// object depending on ajax request resolution
-export function thatAction() {
-  return function (dispatch) {
-    fetch(someUrl)
-      .then(response => {
-        dispatch({
-          type: ACTION_TYPES.thatAction,
-          payload: {
-            something: response.results
-          }
-        })
-      });
+  return dispatch => {
+    return fetch(URL)
+      .then(res => res.json())
+      .then(data => {
+        const locations = data.results.slice(0, 3).map(item => item.name);
+        dispatch(updateListItemLocations(locations));
+      })
+      .catch(error => console.log(error));
   };
-}
+};
