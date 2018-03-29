@@ -6,7 +6,7 @@ import thunk from "redux-thunk";
 import registerServiceWorker from "./registerServiceWorker";
 import { AppContainer } from "./features/app/app.container";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import { GoogleMapsComponent } from "./features/google-map/google-map.component";
+import { GoogleMapsContainer } from "./features/google-map/google-map.container";
 import { LocationRatingContainer } from "./features/location-rating/location-rating.container";
 import "./index.css";
 import reducer from "./reducers";
@@ -45,7 +45,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/Map" component={GoogleMapsComponent} />
+        <Route path="/Map" component={GoogleMapsContainer} />
         <Route path="/RateLocation" component={LocationRatingContainer} />
         <Route path="/" component={AppContainer} />
       </Switch>
