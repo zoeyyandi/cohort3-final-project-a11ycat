@@ -19,12 +19,15 @@ export class LocationRating extends Component {
           {this.accessibilityFeatures.map((feature, index) => (
             <div key={index}>
               <input
+                id={index}
                 type="checkbox"
                 onClick={() =>
                   this.props.onClickFeature(this.location, feature)
                 }
               />
-              {feature}
+              <label for={index}>
+                {feature}
+              </label>
             </div>
           ))}
         </div>
