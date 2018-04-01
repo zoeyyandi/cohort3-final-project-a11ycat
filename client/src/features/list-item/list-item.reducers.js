@@ -1,8 +1,6 @@
 import { ACTION_TYPES } from './list-item.types';
 
 const INITIAL_STATE = {
-  sampleKey1: [],
-  sampleKey2: 'something',
   locations: []
 };
 

@@ -1,6 +1,6 @@
-import React from "react";
-import { Button } from "../../ui-kit/button";
-import styled from "styled-components";
+import React from 'react';
+import { Button } from '../../ui-kit/button';
+import styled from 'styled-components';
 
 export const Item = styled.li`
   display: flex;
@@ -8,8 +8,8 @@ export const Item = styled.li`
   margin: 10px 5px;
 `;
 
-export const ListItem = ({ locationName }) => (
+export const ListItem = ({ location }) => (
   <Item>
-    {locationName} <Button>Rate This</Button>
+    {location.name} <Button>Rate This</Button>
   </Item>
 );

@@ -1,15 +1,8 @@
-import React, { Component } from "react";
 import { connect } from 'react-redux';
-import {thisAction, thatAction} from "./list-item.actions";
-import { ListItem } from './list-item.component'
+import { ListItem } from './list-item.component';
 
-const mapStateToProps = state => ({
-  something: state.something,
-});
+// const mapStateToProps = state => {};
 
-const mapDispatchToProps = {
-  thisAction,
-  thatAction
-};
+const mapDispatchToProps = {};
 
-export const ListItemContainer = connect(mapStateToProps,mapDispatchToProps)(ListItemContainer);
+export const ListItemContainer = connect(null, mapDispatchToProps)(ListItem);

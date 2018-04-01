@@ -7,7 +7,6 @@ const router = express.Router();
 /* GET Places listing. */
 
 router.get('/', function(req, res, next) {
-  return (
     Place
       // we are providing the empty object to mean we are not giving any constraints -- we want them all!
       .find({})
@@ -17,7 +16,7 @@ router.get('/', function(req, res, next) {
           .send(places)
       )
       .catch(err => next(err))
-  ); // if we get an error, propagate the error to the next middleware
+ // if we get an error, propagate the error to the next middleware
 });
 
 /* POST a Places. (This will create one in the database, if successful) */
