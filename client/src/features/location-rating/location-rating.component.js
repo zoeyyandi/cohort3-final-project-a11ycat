@@ -25,7 +25,7 @@ export class LocationRating extends Component {
                   this.props.onClickFeature(this.location, feature)
                 }
               />
-              <label for={index}>
+              <label htmlFor={index}>
                 {feature}
               </label>
             </div>
