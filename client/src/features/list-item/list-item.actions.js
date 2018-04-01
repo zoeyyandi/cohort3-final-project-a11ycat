@@ -8,7 +8,11 @@ export const fetchInitialPlaces = (lat, lng) => {
     return fetch(URL)
       .then(res => res.json())
       .then(data => {
-        const locations = data.results.slice(0, 3).map(item => item.name);
+        const locations = data.results.slice(0, 3).map(item => ({
+          name: item.name,
+          lat: item.geometry.location.lat,
+          lon: item.geometry.location.lng
+        }));
         dispatch(updateListItemLocations(locations));
       })
       .catch(error => console.log(error));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { apiService } from '../../shared/services/api-service';
-import { ListItem } from '../list-item/list-item.component';
+import { ListItemContainer } from '../list-item/list-item.container';
 import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
 import { LocationRatingContainer } from '../location-rating/location-rating.container';
@@ -12,7 +12,7 @@ export class App extends Component {
     apiService
       .get('/someModels')
       .then(function(response) {
-        console.log(response);
+        console.log(response.data);
       })
       .catch(function(error) {
         console.log(error);
@@ -32,7 +32,7 @@ export class App extends Component {
         <Header headerText={'A11yCatz'} />
         <ul>
           {listLocations.map((location, index) => (
-            <ListItem key={index} locationName={location} />
+            <ListItemContainer key={index} location={location} />
           ))}
         </ul>
         <hr />
