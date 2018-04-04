@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker
-} from "react-google-maps";
+} from 'react-google-maps';
 
 var googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 if (!googleMapsAPIKey)
-  throw new Error("googleMapsAPIKey environment variable required");
+  throw new Error('googleMapsAPIKey environment variable required');
 
 const Map = withScriptjs(
   withGoogleMap(props => (

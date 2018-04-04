@@ -4,8 +4,8 @@ import { ListItemContainer } from '../list-item/list-item.container';
 import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
 import { LocationRatingContainer } from '../location-rating/location-rating.container';
-import { GoogleMapContainer } from '../google-map/google-map.container';
 import { Header } from '../../ui-kit/header';
+import { Link } from 'react-router-dom';
 
 export class App extends Component {
   componentDidMount() {
@@ -36,10 +36,9 @@ export class App extends Component {
           ))}
         </ul>
         <hr />
-
+        <Link to="/map">Maps</Link>
         <SearchBarContainer />
         {showAutoComplete && <AutoCompleteListContainer />}
-        <GoogleMapContainer />
         <div>
           <br />
           <br />
