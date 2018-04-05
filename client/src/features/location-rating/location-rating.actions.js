@@ -29,10 +29,10 @@ export const saveLocationToDb = (name, lat, lon, features) => {
         lon,
         rating: {
           accessible_parking: features.includes('Accessible parking'),
-          front_door_ramp: features.includes('Ramp leading to the front door'),
           automatic_front_door: features.includes(
             'Front door opens automatically'
           ),
+          front_door_ramp: features.includes('Ramp leading to the front door'),
           legible_signage: features.includes('Signage is easily legible'),
           service_animal_welcome: features.includes('Service animal is welcome')
         }
