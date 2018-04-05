@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Button } from "../../ui-kit/button";
-import { Heading } from "../../ui-kit/heading";
+import React, { Component } from 'react';
+import { Button } from '../../ui-kit/button';
+import { Heading } from '../../ui-kit/heading';
 export class LocationRating extends Component {
   accessibilityFeatures = [
-    "Accessible parking",
-    "Ramp leading to the front door",
-    "Front door opens automatically",
-    "Signage is easily legible",
-    "Service animal is welcome"
+    'Accessible parking',
+    'Ramp leading to the front door',
+    'Front door opens automatically',
+    'Signage is easily legible',
+    'Service animal is welcome'
   ];
   handleOnClick = event => {
     event.preventDefault();
