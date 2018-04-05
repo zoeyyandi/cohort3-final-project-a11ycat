@@ -1,6 +1,6 @@
 import * as actions from './search-bar.actions'
 import { SEARCH_BAR_TYPES } from './search-bar.types';
-import { ACTION_TYPES } from '../list-item/list-item.types';
+import { LIST_ITEM_ACTION_TYPES } from '../list-item/list-item.types';
 
 
 // this action is called for each character the user type in the search bar
@@ -80,7 +80,7 @@ describe('action: updateListItemLocations', () => {
   it('should return the location in the search bar', () => {
     const locations = ['CF Fairview Mall'];
     const expectedAction = {
-      type: ACTION_TYPES.updateLocations,
+      type: LIST_ITEM_ACTION_TYPES.updateLocations,
       payload: {
         locations
       }
@@ -91,7 +91,7 @@ describe('action: updateListItemLocations', () => {
   it('should return empty location', () => {
     const locations = [];
     const expectedAction = {
-      type: ACTION_TYPES.updateLocations,
+      type: LIST_ITEM_ACTION_TYPES.updateLocations,
       payload: {
         locations
       }

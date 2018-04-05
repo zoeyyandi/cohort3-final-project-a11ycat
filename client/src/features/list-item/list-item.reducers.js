@@ -1,20 +1,20 @@
-import { ACTION_TYPES } from './list-item.types';
+import { LIST_ITEM_ACTION_TYPES } from './list-item.types';
 
 const INITIAL_STATE = {
-  locations: []
+  locations: [],
+  selectedLocation: {
+    name: '',
+    lat: 0,
+    lon: 0
+  }
 };
 
 export const listItemReducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
-    case ACTION_TYPES.thisAction:
-      return { ...state, ...{ sampleKey1: payload } };
-
-    case ACTION_TYPES.thatAction:
-      return { ...state, ...{ list: payload } };
-
-    case ACTION_TYPES.updateLocations:
+    case LIST_ITEM_ACTION_TYPES.updateLocations:
       return { ...state, locations: payload.locations };
-
+    case LIST_ITEM_ACTION_TYPES.onSelectLocation:
+      return {...state, selectedLocation: payload.location }
     default:
       return state;
   }

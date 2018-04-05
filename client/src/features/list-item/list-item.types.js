@@ -1,5 +1,4 @@
-export const ACTION_TYPES = {
-  thisAction: 'THIS_ACTION',
-  thatAction: 'THAT_ACTION',
-  updateLocations: 'UPDATE_LOCATIONS'
+export const LIST_ITEM_ACTION_TYPES = {
+  updateLocations: 'UPDATE_LOCATIONS',
+  onSelectLocation: 'ON_SELECT_LOCATION'
 };
