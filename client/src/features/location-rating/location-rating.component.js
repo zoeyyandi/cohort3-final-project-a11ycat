@@ -26,6 +26,7 @@ export class LocationRating extends Component {
                 <input
                   checked={savedToDb ? false : null}
                   type="checkbox"
+                  id={index}
                   onClick={() =>
                     this.props.onClickFeature(this.location, feature)
                   }
