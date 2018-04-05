@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { apiService } from '../../shared/services/api-service';
-import { ListItemContainer } from '../list-item/list-item.container';
-import { SearchBarContainer } from '../search-bar/search-bar.container';
-import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
-import { LocationRatingContainer } from '../location-rating/location-rating.container';
-import { Header } from '../../ui-kit/header';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { apiService } from "../../shared/services/api-service";
+import { ListItemContainer } from "../list-item/list-item.container";
+import { SearchBarContainer } from "../search-bar/search-bar.container";
+import { AutoCompleteListContainer } from "../auto-complete-list/auto-complete-list.container";
+import { Link } from "react-router-dom";
+import { Heading } from "../../ui-kit/heading";
+import { List } from "../../ui-kit/list";
 
 export class App extends Component {
   componentDidMount() {
     apiService
-      .get('/someModels')
+      .get("/someModels")
       .then(function(response) {
         console.log(response.data);
       })
@@ -29,27 +29,16 @@ export class App extends Component {
     const { showAutoComplete, listLocations } = this.props;
     return (
       <div className="App">
-        <Header headerText={'A11yCatz'} />
-        <ul>
+        <SearchBarContainer />
+        {showAutoComplete && <AutoCompleteListContainer />}
+        <Heading> Nearby locations </Heading>
+        <List>
           {listLocations.map((location, index) => (
             <ListItemContainer key={index} location={location} />
           ))}
-        </ul>
+        </List>
         <hr />
         <Link to="/map">Maps</Link>
-        <SearchBarContainer />
-        {showAutoComplete && <AutoCompleteListContainer />}
-        <div>
-          <br />
-          <br />
-          -------------------
-          <br />
-          <br />
-          This should be a new page, after clicking on "rate" button:
-          <br />
-          <br />
-          <LocationRatingContainer />
-        </div>
       </div>
     );
   }

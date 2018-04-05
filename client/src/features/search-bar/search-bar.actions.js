@@ -1,6 +1,6 @@
 import { SEARCH_BAR_TYPES } from './search-bar.types';
 import { toggleAutoComplete } from '../auto-complete-list/auto-complete-list.actions';
-import { ACTION_TYPES } from '../list-item/list-item.types';
+import { LIST_ITEM_ACTION_TYPES } from '../list-item/list-item.types';
 
 // Regular action creator: returns object
 export const updateSearchInput = searchString => {
@@ -23,7 +23,7 @@ export const addLocations = locations => {
 
 export const updateListItemLocations = locations => {
   return {
-    type: ACTION_TYPES.updateLocations,
+    type: LIST_ITEM_ACTION_TYPES.updateLocations,
     payload: {
       locations
     }

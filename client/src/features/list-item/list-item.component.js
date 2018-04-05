@@ -1,15 +1,22 @@
-import React from 'react';
-import { Button } from '../../ui-kit/button';
-import styled from 'styled-components';
+import React from "react";
+import { Button } from "../../ui-kit/button";
+import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import { variables } from '../../ui-kit/variables';
 
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
-  margin: 10px 5px;
+  margin: 10px 0px;
 `;
 
-export const ListItem = ({ location }) => (
+export const ListItem = ({ location, onSelectLocation }) => (
   <Item>
-    {location.name} <Button>Rate This</Button>
+    {location.name}
+    <Link to= {'/RateLocation'}>
+      <Button onClick={() => onSelectLocation(location)}>
+        Rate This
+      </Button>
+    </Link>
   </Item>
 );

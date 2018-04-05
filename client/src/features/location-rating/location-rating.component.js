@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from '../../ui-kit/button';
-
+import { Heading } from '../../ui-kit/heading';
 export class LocationRating extends Component {
-  location = { name: 'Place name', lat: 1, lon: 2 };
   accessibilityFeatures = [
     'Accessible parking',
     'Ramp leading to the front door',
@@ -10,17 +9,16 @@ export class LocationRating extends Component {
     'Signage is easily legible',
     'Service animal is welcome'
   ];
-
   handleOnClick = event => {
     event.preventDefault();
     const { features, name, lat, lon, saveLocationToDb } = this.props;
     saveLocationToDb(name, lat, lon, features);
   };
   render() {
-    const { savedToDb } = this.props;
+    const { savedToDb, location } = this.props;
     return (
       <div>
-        <h1>{this.location.name}</h1>
+        <Heading>{location.name}</Heading>
         <div>
           {this.accessibilityFeatures.map((feature, index) => (
             <div key={index}>

@@ -1,4 +1,5 @@
-import { updateListItemLocations } from '../search-bar/search-bar.actions';
+import { updateListItemLocations } from "../search-bar/search-bar.actions";
+import { LIST_ITEM_ACTION_TYPES } from "./list-item.types";
 
 export const fetchInitialPlaces = (lat, lng) => {
   const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
@@ -16,5 +17,14 @@ export const fetchInitialPlaces = (lat, lng) => {
         dispatch(updateListItemLocations(locations));
       })
       .catch(error => console.log(error));
+  };
+};
+
+export const onSelectLocation = location => {
+  return {
+    type: LIST_ITEM_ACTION_TYPES.onSelectLocation,
+    payload: {
+      location
+    }
   };
 };
