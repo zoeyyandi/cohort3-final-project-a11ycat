@@ -1,7 +1,8 @@
 import { LOCATION_RATING_TYPES } from './location-rating.types';
 
 const INITIAL_STATE = {
-  features: []
+  features: [],
+  savedToDb: false
 };
 
 export const locationRatingReducer = (
@@ -10,13 +11,18 @@ export const locationRatingReducer = (
 ) => {
   switch (type) {
     case LOCATION_RATING_TYPES.toggleFeature:
-      // let key = payload.location.lat + "," + payload.location.lon;
       const { feature } = payload;
       return {
         ...state,
         features: state.features.includes(feature)
           ? state.features.filter(f => f !== feature)
           : [...state.features, feature]
+      };
+    case LOCATION_RATING_TYPES.saveDbSuccess:
+      return {
+        ...state,
+        savedToDb: payload.bool,
+        features: []
       };
     default:
       return state;

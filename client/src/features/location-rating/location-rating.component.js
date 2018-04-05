@@ -11,7 +11,13 @@ export class LocationRating extends Component {
     'Service animal is welcome'
   ];
 
+  handleOnClick = event => {
+    event.preventDefault();
+    const { features, name, lat, lon, saveLocationToDb } = this.props;
+    saveLocationToDb(name, lat, lon, features);
+  };
   render() {
+    const { savedToDb } = this.props;
     return (
       <div>
         <h1>{this.location.name}</h1>
@@ -20,27 +26,19 @@ export class LocationRating extends Component {
             <div key={index}>
               <label htmlFor={index}>
                 <input
-                  id={index}
+                  checked={savedToDb ? false : null}
                   type="checkbox"
                   onClick={() =>
                     this.props.onClickFeature(this.location, feature)
                   }
-                />              
+                />
                 {feature}
               </label>
             </div>
           ))}
         </div>
         <div>
-          <Button
-            onClick={() =>
-              alert(
-                'I need to save the redux state in the database and go to the next page!'
-              )
-            }
-          >
-            Submit
-          </Button>
+          <Button onClick={this.handleOnClick}>Submit</Button>
         </div>
       </div>
     );
