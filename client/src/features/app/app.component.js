@@ -5,7 +5,7 @@ import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
 import { Heading } from '../../ui-kit/heading';
 import { List } from '../../ui-kit/list';
-import { Toast } from '../../ui-kit/toast';
+import { ToastContainer } from '../notification/success.toast.container';
 
 export class App extends Component {
   componentDidMount() {
@@ -29,7 +29,10 @@ export class App extends Component {
     const { showAutoComplete, listLocations } = this.props;
     return (
       <div className="App">
-        <Toast state="success" message="Your review of Blah was successful." />
+        <ToastContainer
+          state="success"
+          message="Your review of Blah was successful."
+        />
         <SearchBarContainer />
         {showAutoComplete && <AutoCompleteListContainer />}
         <Heading> Nearby locations </Heading>
