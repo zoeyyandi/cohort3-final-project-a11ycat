@@ -46,9 +46,13 @@ export const SearchBar = ({
   };
 
   const handleClick = event => {
-    textSearch(inputValue, userLocation.lat, userLocation.lon);
-    updateSearchInput('');
-    toggleAutoComplete(false);
+    if (!inputValue.trim()) {
+      alert("Ops... Please, enter a location name to search the place!")
+    } else {
+      textSearch(inputValue, userLocation.lat, userLocation.lon);
+      updateSearchInput('');
+      toggleAutoComplete(false);
+    }
   };
 
   return (
