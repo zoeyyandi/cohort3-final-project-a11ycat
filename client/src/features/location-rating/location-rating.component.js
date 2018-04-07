@@ -22,11 +22,11 @@ export class LocationRating extends Component {
         <div>
           {this.accessibilityFeatures.map((feature, index) => (
             <div key={index}>
-              <label htmlFor={index}>
+              <label htmlFor={`rate${index}`}>
                 <input
                   checked={savedToDb ? false : null}
                   type="checkbox"
-                  id={index}
+                  id={`rate${index}`}
                   onClick={() =>
                     this.props.onClickFeature(this.location, feature)
                   }
