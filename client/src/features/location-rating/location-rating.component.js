@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from '../../ui-kit/button';
 import { Heading } from '../../ui-kit/heading';
+<<<<<<< HEAD
 import { device } from '../../ui-kit/device-breakpoints';
 import { Page } from '../../ui-kit/page-style';
 
@@ -35,6 +36,9 @@ export const CenteredButton = Button.extend`
   align-items: center;
 `;
 
+=======
+import { ToastContainer } from '../toast/toast.container';
+>>>>>>> Toast seems to be working just fine. Need to clean up before PR
 export class LocationRating extends Component {
   accessibilityFeatures = [
     'Accessible parking',
