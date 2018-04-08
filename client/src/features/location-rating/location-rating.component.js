@@ -15,6 +15,11 @@ export class LocationRating extends Component {
     const { features, name, lat, lon, saveLocationToDb } = this.props;
     saveLocationToDb(name, lat, lon, features);
   };
+  handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.handleOnClick(event);
+    }
+  };
   render() {
     const { savedToDb, location } = this.props;
     return (
@@ -31,6 +36,7 @@ export class LocationRating extends Component {
                   onClick={() =>
                     this.props.onClickFeature(this.location, feature)
                   }
+                  onKeyPress={this.handleKeyPress}
                 />
                 {feature}
               </label>
