@@ -1,6 +1,6 @@
 import { LOCATION_RATING_TYPES } from './location-rating.types';
 import { apiService } from '../../shared/services/api-service';
-
+import {history} from '../../index';
 export function updateLocationRatingAction(location, feature) {
   return {
     type: LOCATION_RATING_TYPES.toggleFeature,
@@ -40,6 +40,9 @@ export const saveLocationToDb = (name, lat, lon, features) => {
       .then(response => {
         console.log(response);
         dispatch(updateSuccess(true));
+      })
+      .then(() => {
+        history.push('/map');
       })
       .catch(error => {
         console.log(error);
