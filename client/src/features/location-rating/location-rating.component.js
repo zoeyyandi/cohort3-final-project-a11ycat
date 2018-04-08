@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from '../../ui-kit/button';
 import { Heading } from '../../ui-kit/heading';
+import { Link } from 'react-router-dom';
 export class LocationRating extends Component {
   accessibilityFeatures = [
     'Accessible parking',
@@ -37,7 +38,9 @@ export class LocationRating extends Component {
           ))}
         </div>
         <div>
-          <Button onClick={this.handleOnClick}>Submit</Button>
+          <Button onClick={this.handleOnClick}>
+              Submit
+          </Button>
         </div>
       </div>
     );
