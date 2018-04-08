@@ -55,10 +55,17 @@ export const SearchBar = ({
     }
   };
 
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      handleClick(event)
+    }
+  }
+
   return (
     <SearchContainer>
       <Input
         onChange={handleChange}
+        onKeyPress={handleKeyPress}
         placeholder="Location Name"
         value={inputValue}
       />
