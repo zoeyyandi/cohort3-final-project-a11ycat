@@ -10,8 +10,8 @@ import { MapPageContainer } from "./features/map-page/map-page.container";
 import { LocationRatingContainer } from "./features/location-rating/location-rating.container";
 import "./index.css";
 import reducer from "./reducers";
-import { Header } from './ui-kit/header';
-import createHistory from "history/createBrowserHistory"
+import { HeaderWithRouter } from "./ui-kit/header";
+import createHistory from "history/createBrowserHistory";
 
 export const history = createHistory();
 
@@ -48,12 +48,12 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-    <div>
-      <Header headerText={'A11yCatz'} />
-      <Route exact path="/Map" component={MapPageContainer} />
-      <Route exact path="/RateLocation" component={LocationRatingContainer} />
-      <Route exact path="/" component={AppContainer} />
-    </div>
+      <div>
+        <HeaderWithRouter />
+        <Route exact path="/Map" component={MapPageContainer} />
+        <Route exact path="/RateLocation" component={LocationRatingContainer} />
+        <Route exact path="/" component={AppContainer} />
+      </div>
     </Router>
   </Provider>,
   document.getElementById("root")

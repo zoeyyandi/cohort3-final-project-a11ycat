@@ -1,6 +1,6 @@
-import { LOCATION_RATING_TYPES } from './location-rating.types';
-import { apiService } from '../../shared/services/api-service';
-import {history} from '../../index';
+import { LOCATION_RATING_TYPES } from "./location-rating.types";
+import { apiService } from "../../shared/services/api-service";
+import { history } from "../../index";
 export function updateLocationRatingAction(location, feature) {
   return {
     type: LOCATION_RATING_TYPES.toggleFeature,
@@ -28,13 +28,13 @@ export const saveLocationToDb = (name, lat, lon, features) => {
         lat,
         lon,
         rating: {
-          accessible_parking: features.includes('Accessible parking'),
+          accessible_parking: features.includes("Accessible parking"),
           automatic_front_door: features.includes(
-            'Front door opens automatically'
+            "Front door opens automatically"
           ),
-          front_door_ramp: features.includes('Ramp leading to the front door'),
-          legible_signage: features.includes('Signage is easily legible'),
-          service_animal_welcome: features.includes('Service animal is welcome')
+          front_door_ramp: features.includes("Ramp leading to the front door"),
+          legible_signage: features.includes("Signage is easily legible"),
+          service_animal_welcome: features.includes("Service animal is welcome")
         }
       })
       .then(response => {
@@ -42,7 +42,7 @@ export const saveLocationToDb = (name, lat, lon, features) => {
         dispatch(updateSuccess(true));
       })
       .then(() => {
-        history.push('/map');
+        history.push("/map");
       })
       .catch(error => {
         console.log(error);

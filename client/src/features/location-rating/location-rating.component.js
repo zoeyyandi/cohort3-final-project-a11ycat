@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import { Button } from '../../ui-kit/button';
-import { Heading } from '../../ui-kit/heading';
+import React, { Component } from "react";
+import { Button } from "../../ui-kit/button";
+import { Heading } from "../../ui-kit/heading";
+import { device } from "../../ui-kit/device-breakpoints";
+import { Page } from "../../ui-kit/page-style";
 
 import styled from "styled-components";
 
@@ -8,37 +10,38 @@ export const Item = styled.div`
   float: left;
   margin: 10px;
   width: 350px;
-  length: 150px;
 `;
 
-export const Container = styled.div`
-  max-width: 1110px;
-  margin: 0 auto;
-  vertical-align: top;
-
-  @media  screen and (max-width: 1125px) {
-      max-width: 740px;
-      margin: 0 auto;
-  }
-  @media screen and (max-width: 755px) {
-    max-width: 370px;
-    margin: 0 auto;
-  }
-`;
-
-export const ButtonWrapper = styled.div`
+export const InputWrapper = styled.div`
+  margin-left: 10px;
   display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-flow: column wrap;
+  align-content: left;
+  margin-bottom: 30px;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
+`;
+
+export const CenteredButton = Button.extend`
+  margin-left: 20px;
+  display: block;
   align-items: center;
-  justify-content: center;
-`
+`;
 
 export class LocationRating extends Component {
   accessibilityFeatures = [
-    'Accessible parking',
-    'Ramp leading to the front door',
-    'Front door opens automatically',
-    'Signage is easily legible',
-    'Service animal is welcome'
+    "Accessible parking",
+    "Ramp leading to the front door",
+    "Front door opens automatically",
+    "Signage is easily legible",
+    "Service animal is welcome"
   ];
   handleOnClick = event => {
     event.preventDefault();
@@ -53,30 +56,29 @@ export class LocationRating extends Component {
   render() {
     const { savedToDb, location } = this.props;
     return (
-      <div>
+      <Page>
         <Heading>{location.name}</Heading>
         <div>
-        <Container>
-          {this.accessibilityFeatures.map((feature, index) => (
-            <Item key={index}>
-              <label htmlFor={index}>
-                <input
-                  checked={savedToDb ? false : null}
-                  type="checkbox"
-                  id={`rate${index}`}
-                  onClick={() =>
-                    this.props.onClickFeature(this.location, feature)
-                  }
-                  onKeyPress={this.handleKeyPress}
-                />
-                {feature}
-              </label>
-            </Item>
-          ))}
-        </Container>
-        <Button onClick={this.handleOnClick}>Submit</Button>
+          <InputWrapper>
+            {this.accessibilityFeatures.map((feature, index) => (
+              <Item key={index}>
+                <label htmlFor={index}>
+                  <input
+                    checked={savedToDb ? false : null}
+                    type="checkbox"
+                    id={`rate${index}`}
+                    onClick={() =>
+                      this.props.onClickFeature(this.location, feature)
+                    }
+                  />
+                  {feature}
+                </label>
+              </Item>
+            ))}
+          </InputWrapper>
+          <CenteredButton onClick={this.handleOnClick}>Submit</CenteredButton>
         </div>
-      </div>
+      </Page>
     );
   }
 }
