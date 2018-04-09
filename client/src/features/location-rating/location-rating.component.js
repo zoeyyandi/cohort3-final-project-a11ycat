@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Button } from "../../ui-kit/button";
-import { Heading } from "../../ui-kit/heading";
-import { device } from "../../ui-kit/device-breakpoints";
-import { Page } from "../../ui-kit/page-style";
+import React, { Component } from 'react';
+import { Button } from '../../ui-kit/button';
+import { Heading } from '../../ui-kit/heading';
+import { device } from '../../ui-kit/device-breakpoints';
+import { Page } from '../../ui-kit/page-style';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Item = styled.div`
   float: left;
@@ -37,11 +37,11 @@ export const CenteredButton = Button.extend`
 
 export class LocationRating extends Component {
   accessibilityFeatures = [
-    "Accessible parking",
-    "Ramp leading to the front door",
-    "Front door opens automatically",
-    "Signage is easily legible",
-    "Service animal is welcome"
+    'Accessible parking',
+    'Ramp leading to the front door',
+    'Front door opens automatically',
+    'Signage is easily legible',
+    'Service animal is welcome'
   ];
   handleOnClick = event => {
     event.preventDefault();

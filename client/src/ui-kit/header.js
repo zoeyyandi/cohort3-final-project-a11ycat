@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import GithubCat from "./github-logo.png";
-import HomeIcon from "./home-icon.png";
-import MapIcon from "./map-icon.png";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import GithubCat from './github-logo.png';
+import HomeIcon from './home-icon.png';
+import MapIcon from './map-icon.png';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const PageHeader = styled.div`
   display: flex;
@@ -27,15 +27,15 @@ export const Header = ({ headerText, locationProps }) => (
     <img alt="github cat logo" src={GithubCat} />
     <AppName>{headerText}</AppName>
     <IconWrapper>
-      {locationProps.location.pathname === "/" ? (
+      {locationProps.location.pathname === '/' ? (
         <Link to="/map">
-          {" "}
-          <Icon alt="route to map" src={MapIcon} />{" "}
+          {' '}
+          <Icon alt="route to map" src={MapIcon} />{' '}
         </Link>
       ) : (
         <Link to="/">
-          {" "}
-          <Icon alt="home icon" src={HomeIcon} />{" "}
+          {' '}
+          <Icon alt="home icon" src={HomeIcon} />{' '}
         </Link>
       )}
     </IconWrapper>
@@ -43,5 +43,5 @@ export const Header = ({ headerText, locationProps }) => (
 );
 
 export const HeaderWithRouter = withRouter(props => (
-  <Header locationProps={props} headerText={"A11yCatz"} />
+  <Header locationProps={props} headerText={'A11yCatz'} />
 ));
