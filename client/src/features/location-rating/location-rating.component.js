@@ -1,7 +1,40 @@
 import React, { Component } from 'react';
 import { Button } from '../../ui-kit/button';
 import { Heading } from '../../ui-kit/heading';
-import { Link } from 'react-router-dom';
+import { device } from '../../ui-kit/device-breakpoints';
+import { Page } from '../../ui-kit/page-style';
+
+import styled from 'styled-components';
+
+export const Item = styled.div`
+  float: left;
+  margin: 10px;
+  width: 350px;
+`;
+
+export const InputWrapper = styled.div`
+  margin-left: 10px;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-flow: column wrap;
+  align-content: left;
+  margin-bottom: 30px;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
+`;
+
+export const CenteredButton = Button.extend`
+  margin-left: 20px;
+  display: block;
+  align-items: center;
+`;
+
 export class LocationRating extends Component {
   accessibilityFeatures = [
     'Accessible parking',
@@ -23,32 +56,29 @@ export class LocationRating extends Component {
   render() {
     const { savedToDb, location } = this.props;
     return (
-      <div>
+      <Page>
         <Heading>{location.name}</Heading>
         <div>
-          {this.accessibilityFeatures.map((feature, index) => (
-            <div key={index}>
-              <label htmlFor={`rate${index}`}>
-                <input
-                  checked={savedToDb ? false : null}
-                  type="checkbox"
-                  id={`rate${index}`}
-                  onClick={() =>
-                    this.props.onClickFeature(this.location, feature)
-                  }
-                  onKeyPress={this.handleKeyPress}
-                />
-                {feature}
-              </label>
-            </div>
-          ))}
+          <InputWrapper>
+            {this.accessibilityFeatures.map((feature, index) => (
+              <Item key={index}>
+                <label htmlFor={index}>
+                  <input
+                    checked={savedToDb ? false : null}
+                    type="checkbox"
+                    id={`rate${index}`}
+                    onClick={() =>
+                      this.props.onClickFeature(this.location, feature)
+                    }
+                  />
+                  {feature}
+                </label>
+              </Item>
+            ))}
+          </InputWrapper>
+          <CenteredButton onClick={this.handleOnClick}>Submit</CenteredButton>
         </div>
-        <div>
-          <Button onClick={this.handleOnClick}>
-              Submit
-          </Button>
-        </div>
-      </div>
+      </Page>
     );
   }
 }

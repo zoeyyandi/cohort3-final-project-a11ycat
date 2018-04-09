@@ -1,6 +1,6 @@
 import { LOCATION_RATING_TYPES } from './location-rating.types';
 import { apiService } from '../../shared/services/api-service';
-import {history} from '../../index';
+import { history } from '../../index';
 export function updateLocationRatingAction(location, feature) {
   return {
     type: LOCATION_RATING_TYPES.toggleFeature,
