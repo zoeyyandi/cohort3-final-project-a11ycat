@@ -3,4 +3,4 @@ import { successToastEpic, hideToastEpic } from './features/toast/toast.epic';
 
 const rootEpic = combineEpics(successToastEpic, hideToastEpic);
 
-export const epicMiddleware = createEpicMiddleware(successToastEpic);
+export const epicMiddleware = createEpicMiddleware(rootEpic);
