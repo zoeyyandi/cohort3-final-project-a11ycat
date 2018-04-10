@@ -18,11 +18,11 @@ export class App extends Component {
       .catch(function(error) {
         console.log(error);
       });
-    this.props.toggleLoading(true);
     this.locationCall();
   }
 
   locationCall = async () => {
+    this.props.toggleLoading(true);
     await this.props.getLocation();
     this.props.fetchInitialPlaces(this.props.lat, this.props.lon);
   };

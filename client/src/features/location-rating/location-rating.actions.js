@@ -1,6 +1,7 @@
 import { LOCATION_RATING_TYPES } from './location-rating.types';
 import { apiService } from '../../shared/services/api-service';
 import { history } from '../../index';
+const uuidv4 = require('uuid/v4');
 export function updateLocationRatingAction(location, feature) {
   return {
     type: LOCATION_RATING_TYPES.toggleFeature,
@@ -21,12 +22,14 @@ export function updateSuccess(bool) {
 }
 
 export const saveLocationToDb = (name, lat, lon, features) => {
+  const key = uuidv4();
   return dispatch => {
     apiService
-      .post(`/someModels/${name}`, {
+      .post(`/someModels/${key}`, {
         name,
         lat,
         lon,
+        key,
         rating: {
           accessible_parking: features.includes('Accessible parking'),
           automatic_front_door: features.includes(
