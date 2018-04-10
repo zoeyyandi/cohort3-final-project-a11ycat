@@ -5,7 +5,7 @@ import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
 import { Heading } from '../../ui-kit/heading';
 import { List } from '../../ui-kit/list';
-import { Toast } from '../../ui-kit/toast';
+// import { Toast } from '../../ui-kit/toast';
 import { LoadingIndicator } from '../list-item/list-loading.component';
 
 export class App extends Component {
@@ -18,11 +18,11 @@ export class App extends Component {
       .catch(function(error) {
         console.log(error);
       });
-    this.props.toggleLoading(true);
     this.locationCall();
   }
 
   locationCall = async () => {
+    this.props.toggleLoading(true);
     await this.props.getLocation();
     this.props.fetchInitialPlaces(this.props.lat, this.props.lon);
   };

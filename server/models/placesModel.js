@@ -12,6 +12,7 @@ export const placeSchema = new Schema({
   name: String,
   lat: Number,
   lon: Number,
+  key: String,
   ratings: [ratingsSchema]
 });
 
