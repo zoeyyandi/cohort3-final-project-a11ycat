@@ -1,7 +1,6 @@
 .idea/
 .env
 build/
-package-lock.json
 
 # Logs
 logs
@@ -64,4 +63,3 @@ typings/
 
 # next.js build output
 .next
-
