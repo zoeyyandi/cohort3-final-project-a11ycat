@@ -6,6 +6,7 @@ import {
   Marker,
   InfoWindow
 } from 'react-google-maps';
+import { Ratings } from './map-rating.component';
 import { ToastContainer } from '../toast/toast.container';
 
 const google = window.google;
@@ -31,6 +32,7 @@ const Map = withScriptjs(
               <InfoWindow onCloseClick={props.onInfoClose}>
                 <div>
                   <h1>Name: {marker.name}</h1>
+                  <Ratings avgRating={marker.avgRating} />
                 </div>
               </InfoWindow>
             );
@@ -53,6 +55,10 @@ const Map = withScriptjs(
 );
 
 export class GoogleMapsComponent extends Component {
+  componentDidMount() {
+    this.props.fetchMapLocations();
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -62,14 +68,16 @@ export class GoogleMapsComponent extends Component {
           position: {
             lat: 43.6399,
             lng: -79.3782
-          }
+          },
+          avgRating: 3
         },
         {
           name: 'Fort York',
           position: {
             lat: 43.639217,
             lng: -79.400414
-          }
+          },
+          avgRating: 4
         }
       ],
       activeMarker: null
