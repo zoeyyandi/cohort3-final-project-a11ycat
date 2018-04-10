@@ -84,8 +84,8 @@ router.post('/:key', function(req, res, next) {
 });
 
 /* DELETE a Places. (This will remove one in the database, if successful) */
-router.delete('/', function(req, res, next) {
-  Place.remove({})
+router.delete('/:key', function(req, res, next) {
+  Place.remove({ key: req.params.key })
     .then(() =>
       res
         .status(200) // explicitly set the status code to 201 to indicate the request was successful
