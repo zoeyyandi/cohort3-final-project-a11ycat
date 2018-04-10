@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from '../../ui-kit/button';
 import { Heading } from '../../ui-kit/heading';
-<<<<<<< HEAD
 import { device } from '../../ui-kit/device-breakpoints';
 import { Page } from '../../ui-kit/page-style';
 
@@ -36,9 +35,6 @@ export const CenteredButton = Button.extend`
   align-items: center;
 `;
 
-=======
-import { ToastContainer } from '../toast/toast.container';
->>>>>>> Toast seems to be working just fine. Need to clean up before PR
 export class LocationRating extends Component {
   accessibilityFeatures = [
     'Accessible parking',
@@ -66,7 +62,7 @@ export class LocationRating extends Component {
           <InputWrapper>
             {this.accessibilityFeatures.map((feature, index) => (
               <Item key={index}>
-                <label htmlFor={index}>
+                <label htmlFor={`rate${index}`}>
                   <input
                     checked={savedToDb ? false : null}
                     type="checkbox"
