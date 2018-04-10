@@ -6,13 +6,13 @@ import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 import { AppContainer } from './features/app/app.container';
 import { Route, Router } from 'react-router-dom';
+import { epicMiddleware } from './epics';
 import { MapPageContainer } from './features/map-page/map-page.container';
 import { LocationRatingContainer } from './features/location-rating/location-rating.container';
 import './index.css';
 import reducer from './reducers';
 import { HeaderWithRouter } from './ui-kit/header';
 import createHistory from 'history/createBrowserHistory';
-
 export const history = createHistory();
 
 if (process.env.NODE_ENV === 'development') {
@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'development') {
 const store = createStore(
   reducer,
   compose(
-    applyMiddleware(thunk),
+    applyMiddleware(thunk, epicMiddleware),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );

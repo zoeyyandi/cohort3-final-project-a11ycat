@@ -62,7 +62,7 @@ export class LocationRating extends Component {
           <InputWrapper>
             {this.accessibilityFeatures.map((feature, index) => (
               <Item key={index}>
-                <label htmlFor={index}>
+                <label htmlFor={`rate${index}`}>
                   <input
                     checked={savedToDb ? false : null}
                     type="checkbox"

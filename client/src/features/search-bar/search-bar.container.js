@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import {
   fetchLocations,
   updateSearchInput,
-  textSearch
+  textSearch,
+  errorNoInput
 } from './search-bar.actions';
 import { SearchBar } from './search-bar.component';
 import { toggleAutoComplete } from '../auto-complete-list/auto-complete-list.actions';
@@ -16,7 +17,8 @@ const mapDispatchToProps = {
   fetchLocations,
   updateSearchInput,
   textSearch,
-  toggleAutoComplete
+  toggleAutoComplete,
+  errorNoInput
 };
 
 export const SearchBarContainer = connect(mapStateToProps, mapDispatchToProps)(
