@@ -25,7 +25,8 @@ const StyledToast = styled.div`
   background: ${variables.colour.paleGrey};
   color: ${variables.colour.offBlack};
   box-shadow: 4px 4px 12px ${variables.colour.lightGrey};
-  text-align:center;
+  text-align: center;
+  cursor: pointer;
 
   &:before {
     color: white;

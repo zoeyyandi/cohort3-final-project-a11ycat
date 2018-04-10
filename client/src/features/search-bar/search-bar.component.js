@@ -49,7 +49,7 @@ export const SearchBar = ({
 
   const handleClick = event => {
     if (!inputValue.trim()) {
-      errorNoInput;
+      errorNoInput();
     } else {
       textSearch(inputValue, userLocation.lat, userLocation.lon);
       updateSearchInput('');

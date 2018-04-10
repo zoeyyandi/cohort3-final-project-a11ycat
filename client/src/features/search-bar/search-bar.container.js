@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import {
   fetchLocations,
   updateSearchInput,
-  textSearch
+  textSearch,
+  errorNoInput
 } from './search-bar.actions';
 import { SearchBar } from './search-bar.component';
 import { toggleAutoComplete } from '../auto-complete-list/auto-complete-list.actions';
