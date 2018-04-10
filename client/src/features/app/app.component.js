@@ -31,7 +31,6 @@ export class App extends Component {
     const { showAutoComplete, listLocations, isLoading } = this.props;
     return (
       <div className="App">
-        <Toast state="success" message="Your review of Blah was successful." />
         <SearchBarContainer />
         {showAutoComplete && <AutoCompleteListContainer />}
         <Heading> Nearby locations </Heading>

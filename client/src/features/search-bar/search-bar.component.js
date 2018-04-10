@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '../../ui-kit/button';
 import styled from 'styled-components';
 import { variables } from '../../ui-kit/variables';
+import { ToastContainer } from '../toast/toast.container';
 
 const Input = styled.input`
   display: flex;
@@ -37,7 +38,8 @@ export const SearchBar = ({
   inputValue,
   textSearch,
   toggleAutoComplete,
-  userLocation
+  userLocation,
+  errorNoInput
 }) => {
   const handleChange = event => {
     let input = event.target.value;
@@ -47,7 +49,7 @@ export const SearchBar = ({
 
   const handleClick = event => {
     if (!inputValue.trim()) {
-      alert("Ops... Please, enter a location name to search the place!")
+      errorNoInput();
     } else {
       textSearch(inputValue, userLocation.lat, userLocation.lon);
       updateSearchInput('');
@@ -57,19 +59,22 @@ export const SearchBar = ({
 
   const handleKeyPress = event => {
     if (event.key === 'Enter') {
-      handleClick(event)
+      handleClick(event);
     }
-  }
+  };
 
   return (
-    <SearchContainer>
-      <Input
-        onChange={handleChange}
-        onKeyPress={handleKeyPress}
-        placeholder="Location Name"
-        value={inputValue}
-      />
-      <SearchButton onClick={handleClick}>Search</SearchButton>
-    </SearchContainer>
+    <div>
+      <ToastContainer />
+      <SearchContainer>
+        <Input
+          onChange={handleChange}
+          onKeyPress={handleKeyPress}
+          placeholder="Location Name"
+          value={inputValue}
+        />
+        <SearchButton onClick={handleClick}>Search</SearchButton>
+      </SearchContainer>
+    </div>
   );
 };

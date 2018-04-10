@@ -1,4 +1,5 @@
-#  a11ycat
+# a11ycat
+
 The user can log whether a location has various accessibility features, and then see other locations that have also been rated.
 
 ## Getting Started
@@ -11,22 +12,25 @@ See **Deployment** for notes on how to deploy the project on Heroku.
 
 ## Prerequisites and Installation
 
-1. First and foremost, you will need to have [Node.js and npm downloaded and installed](https://nodejs.org/en/download/)
-  a. If you check the [`package.json`](package.json) file you'll notice that your major version of Node.js should be `8` and your major version of npm should be `5` (this is so you will have access to [`npx`](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b))
-  b. _[Optional]_ If you find yourself switching between node versions often for various projects or repositories, consider using [nvm](https://github.com/creationix/nvm)
-2. Once you have Node and npm installed at the right versions, run
+1.  First and foremost, you will need to have [Node.js and npm downloaded and installed](https://nodejs.org/en/download/)
+    a. If you check the [`package.json`](package.json) file you'll notice that your major version of Node.js should be `8` and your major version of npm should be `5` (this is so you will have access to [`npx`](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b))
+    b. _[Optional]_ If you find yourself switching between node versions often for various projects or repositories, consider using [nvm](https://github.com/creationix/nvm)
+2.  Once you have Node and npm installed at the right versions, run
     ```
     npm i -g nodemon
     ```
     to install `nodemon`, which will be used for development.
-3. You will also need a `.env` file in the root directory of inside where you cloned this repository. See [**Environment Variables**](#environment-variables) for what environment variables you will need and what they will refer to.
-4. For deployment considerations, you will also need to have the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed
+3.  You will also need a `.env` file in the root directory of inside where you cloned this repository. See [**Environment Variables**](#environment-variables) for what environment variables you will need and what they will refer to.
+4.  For deployment considerations, you will also need to have the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed
 
 End with an example of getting some data out of the system or using it for a little demo
+
 ### Environment Variables
+
 You won't need to worry about manually setting environment variables. Instead, this project is meant to use a `.env` file
 
 With descriptions instead of values, this is what your `.env` should look like (noting that currently the database is assumed to be a MongoDB instance):
+
 ```
 DB_NAME=<database name>
 DB_PORT=<database port>

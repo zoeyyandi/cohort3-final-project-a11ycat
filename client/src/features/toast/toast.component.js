@@ -1,6 +1,16 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
-import { variables } from './variables';
-import React, { Component } from 'react';
+import { variables } from '../../ui-kit/variables';
+
+export const ToastComponent = props => {
+  if (props.showToast) {
+    return (
+      <StyledToast onClick={props.hideToast} level={props.level}>
+        {props.message}
+      </StyledToast>
+    );
+  } else return null;
+};
 
 const StyledToast = styled.div`
   position: fixed;
@@ -15,6 +25,8 @@ const StyledToast = styled.div`
   background: ${variables.colour.paleGrey};
   color: ${variables.colour.offBlack};
   box-shadow: 4px 4px 12px ${variables.colour.lightGrey};
+  text-align: center;
+  cursor: pointer;
 
   &:before {
     color: white;
@@ -25,12 +37,12 @@ const StyledToast = styled.div`
     top: 50%;
     transform: translate(0, -50%);
     font-size: 30px;
-    padding: 3px 3px 2px 3px;
+    padding: 3px 3px 2px 5px;
     border-radius: ${variables.circle};
   }
 
   ${props =>
-    props.state === 'success' &&
+    props.level === 'success' &&
     css`
       &:before {
         background: #6cd577;
@@ -38,7 +50,7 @@ const StyledToast = styled.div`
         content: '✔';
       }
     `} ${props =>
-    props.state === 'error' &&
+    props.level === 'error' &&
     css`
       &:before {
         background: #eb6773;
@@ -47,7 +59,3 @@ const StyledToast = styled.div`
       }
     `};
 `;
-
-export const Toast = props => {
-  return <StyledToast state={props.state}>{props.message}</StyledToast>;
-};
