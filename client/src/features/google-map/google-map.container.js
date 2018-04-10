@@ -6,7 +6,8 @@ import { fetchMapLocations } from './google-map.actions';
 const mapStateToProps = state => ({
   userCoords: {
     lat: state.appReducer.userLocation.lat,
-    lng: state.appReducer.userLocation.lon
+    lng: state.appReducer.userLocation.lon,
+    ratedPlaces: state.googleMapReducer.ratedPlaces
   }
 });
 
