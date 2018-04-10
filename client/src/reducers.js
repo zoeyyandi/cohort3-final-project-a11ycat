@@ -5,6 +5,7 @@ import { searchBarReducer } from './features/search-bar/search-bar.reducers';
 import { autoCompleteListReducer } from './features/auto-complete-list/auto-complete-list.reducers';
 import { locationRatingReducer } from './features/location-rating/location-rating.reducers';
 import { ToastReducer } from './features/toast/toast.reducer';
+import { googleMapReducer } from './features/google-map/google-map.reducers';
 
 export default combineReducers({
   appReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   searchBarReducer,
   autoCompleteListReducer,
   locationRatingReducer,
-  ToastReducer
+  ToastReducer,
+  googleMapReducer
 });

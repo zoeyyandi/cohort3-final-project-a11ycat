@@ -53,6 +53,10 @@ const Map = withScriptjs(
 );
 
 export class GoogleMapsComponent extends Component {
+  componentDidMount() {
+    this.props.fetchMapLocations();
+  }
+
   constructor(props) {
     super(props);
     this.state = {
