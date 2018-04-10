@@ -16,7 +16,8 @@ const mapDispatchToProps = {
   fetchLocations,
   updateSearchInput,
   textSearch,
-  toggleAutoComplete
+  toggleAutoComplete,
+  errorNoInput
 };
 
 export const SearchBarContainer = connect(mapStateToProps, mapDispatchToProps)(

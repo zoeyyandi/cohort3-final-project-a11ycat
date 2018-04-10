@@ -40,7 +40,7 @@ export const fetchLocations = (searchString, lat, lng) => {
       .then(data => {
         const locations = data.predictions
           .slice(0, 5)
-          .map( item => item.description );
+          .map(item => item.description);
         if (locations.length > 0) {
           dispatch(toggleAutoComplete(true));
         }
@@ -68,3 +68,11 @@ export const textSearch = (inputText, lat, lng) => {
   };
 };
 
+export const errorNoInput = () => {
+  return {
+    type: SEARCH_BAR_TYPES.error,
+    payload: {
+      message: 'Ops... Please, enter a location name to search the place!'
+    }
+  };
+};
