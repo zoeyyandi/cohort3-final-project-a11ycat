@@ -1,5 +1,5 @@
-import { updateListItemLocations } from "../search-bar/search-bar.actions";
-import { LIST_ITEM_ACTION_TYPES } from "./list-item.types";
+import { updateListItemLocations } from '../search-bar/search-bar.actions';
+import { LIST_ITEM_ACTION_TYPES } from './list-item.types';
 
 export const fetchInitialPlaces = (lat, lng) => {
   const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
@@ -15,8 +15,12 @@ export const fetchInitialPlaces = (lat, lng) => {
           lon: item.geometry.location.lng
         }));
         dispatch(updateListItemLocations(locations));
+        dispatch(toggleLoading(false));
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        dispatch(toggleLoading(false));
+      });
   };
 };
 
@@ -25,6 +29,15 @@ export const onSelectLocation = location => {
     type: LIST_ITEM_ACTION_TYPES.onSelectLocation,
     payload: {
       location
+    }
+  };
+};
+
+export const toggleLoading = bool => {
+  return {
+    type: LIST_ITEM_ACTION_TYPES.onLoading,
+    payload: {
+      bool
     }
   };
 };

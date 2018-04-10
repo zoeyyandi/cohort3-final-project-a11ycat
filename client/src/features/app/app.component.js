@@ -5,6 +5,8 @@ import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
 import { Heading } from '../../ui-kit/heading';
 import { List } from '../../ui-kit/list';
+import { Toast } from '../../ui-kit/toast';
+import { LoadingIndicator } from '../list-item/list-loading.component';
 
 export class App extends Component {
   componentDidMount() {
@@ -16,6 +18,7 @@ export class App extends Component {
       .catch(function(error) {
         console.log(error);
       });
+    this.props.toggleLoading(true);
     this.locationCall();
   }
 
@@ -25,17 +28,21 @@ export class App extends Component {
   };
 
   render() {
-    const { showAutoComplete, listLocations } = this.props;
+    const { showAutoComplete, listLocations, isLoading } = this.props;
     return (
       <div className="App">
         <SearchBarContainer />
         {showAutoComplete && <AutoCompleteListContainer />}
         <Heading> Nearby locations </Heading>
-        <List>
-          {listLocations.map((location, index) => (
-            <ListItemContainer key={index} location={location} />
-          ))}
-        </List>
+        {isLoading ? (
+          <LoadingIndicator />
+        ) : (
+          <List>
+            {listLocations.map((location, index) => (
+              <ListItemContainer key={index} location={location} />
+            ))}
+          </List>
+        )}
       </div>
     );
   }
