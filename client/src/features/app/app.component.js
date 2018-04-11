@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { apiService } from '../../shared/services/api-service';
 import { ListItemContainer } from '../list-item/list-item.container';
 import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
@@ -10,6 +9,14 @@ import { LoadingIndicator } from '../list-item/list-loading.component';
 
 export class App extends Component {
   componentDidMount() {
+    apiService
+      .get('/someModels')
+      .then(function(response) {
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
     this.locationCall();
   }
 

@@ -23,7 +23,6 @@ const Wrapper = styled.div`
   min-height: 100%;
 `;
 
-
 if (process.env.NODE_ENV === 'development') {
   const a11y = require('react-a11y').default;
   a11y(React, ReactDOM, {
@@ -48,10 +47,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const store = createStore(
   reducer,
-  compose(
-    applyMiddleware(thunk, epicMiddleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  compose(applyMiddleware(thunk, epicMiddleware))
 );
 
 ReactDOM.render(
