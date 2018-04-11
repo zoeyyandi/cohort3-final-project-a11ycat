@@ -6,10 +6,10 @@ import { fetchMapLocations, updateActiveMarker } from './google-map.actions';
 const mapStateToProps = state => ({
   userCoords: {
     lat: state.appReducer.userLocation.lat,
-    lng: state.appReducer.userLocation.lon,
-    ratedPlaces: state.googleMapReducer.ratedPlaces
+    lng: state.appReducer.userLocation.lon
   },
-  activeMarker: state.googleMapReducer.activeMarker
+  activeMarker: state.googleMapReducer.activeMarker,
+  markers: state.googleMapReducer.markers
 });
 
 const mapDispatchToProps = {
