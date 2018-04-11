@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Page = styled.div`
-  margin-left: 50px;
-  margin-right: 50px;
+  max-width: 900px;
+  margin: 0px auto;
+  height: auto;
+  min-height: 100%;
+  padding: 20px;
 `;

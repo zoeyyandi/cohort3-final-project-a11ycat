@@ -5,7 +5,7 @@ import { SearchBarContainer } from '../search-bar/search-bar.container';
 import { AutoCompleteListContainer } from '../auto-complete-list/auto-complete-list.container';
 import { Heading } from '../../ui-kit/heading';
 import { List } from '../../ui-kit/list';
-// import { Toast } from '../../ui-kit/toast';
+import { Page } from '../../ui-kit/page-style';
 import { LoadingIndicator } from '../list-item/list-loading.component';
 
 export class App extends Component {
@@ -30,10 +30,10 @@ export class App extends Component {
   render() {
     const { showAutoComplete, listLocations, isLoading } = this.props;
     return (
-      <div className="App">
+      <Page>
         <SearchBarContainer />
         {showAutoComplete && <AutoCompleteListContainer />}
-        <Heading> Nearby locations </Heading>
+        {!isLoading && <Heading> Nearby locations </Heading>}
         {isLoading ? (
           <LoadingIndicator />
         ) : (
@@ -43,7 +43,7 @@ export class App extends Component {
             ))}
           </List>
         )}
-      </div>
+      </Page>
     );
   }
 }
