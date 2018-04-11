@@ -5,7 +5,12 @@ import { variables } from '../../ui-kit/variables';
 export const ToastComponent = props => {
   if (props.showToast) {
     return (
-      <StyledToast onClick={props.hideToast} level={props.level}>
+      <StyledToast
+        role="dialog"
+        tabIndex="0"
+        onClick={props.hideToast}
+        level={props.level}
+      >
         {props.message}
       </StyledToast>
     );
