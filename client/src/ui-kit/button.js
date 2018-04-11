@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { variables } from "./variables";
 
 export const Button = styled.button`
-  border-radius: ${variables.button.borderRadius};
   height: ${variables.button.height};
   min-width: 100px;
   padding: 5px;
@@ -11,8 +10,9 @@ export const Button = styled.button`
   cursor: pointer;
   outline: none;
   appearance: none;
-  background: ${variables.colour.darkGrey};
-  color: ${variables.colour.white};
+  font-family: 'Open Sans', sans-serif;
+  background: ${variables.colour.gold};
+  color: ${variables.colour.darkestPurple};
   border: 1px solid ${variables.colour.darkGrey};
   > * {
     vertical-align: middle;

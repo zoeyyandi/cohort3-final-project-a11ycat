@@ -8,10 +8,12 @@ const Input = styled.input`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  min-height: 30px;
+  min-height: 37px;
   border: none;
   padding-left: 10px;
   font-size: 1em;
+  font-family: 'Open Sans', sans-serif;  
+  border: 2px solid ${variables.colour.mediumPurple};
   &:focus {
     outline: none;
   }
@@ -21,15 +23,14 @@ const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px;
-  max-height: 36px;
-  border-radius: 5px;
-  border: 2px solid ${variables.colour.darkGrey};
+  margin: 20px 0px 0px 0px;
+  min-height: 36px;
 `;
 
 const SearchButton = Button.extend`
-  border-radius: 0 4px 4px 0;
   min-height: 36px;
+  margin-left: 20px;
+  margin-right: auto;
 `;
 
 export const SearchBar = ({

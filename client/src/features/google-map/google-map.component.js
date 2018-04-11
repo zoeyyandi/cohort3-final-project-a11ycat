@@ -8,16 +8,23 @@ import {
 } from 'react-google-maps';
 import { Ratings } from './map-rating.component';
 import { ToastContainer } from '../toast/toast.container';
+import { Page } from '../../ui-kit/page-style';
+import { styled } from 'styled-components';
 
 const google = window.google;
 const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 if (!googleMapsAPIKey)
   throw new Error('googleMapsAPIKey environment variable required');
 
+const MapPage = Page.extend`
+  margin: 20px;
+`;  
+
+
 const Map = withScriptjs(
   withGoogleMap(props => {
     return (
-      <div>
+      <MapPage>
         <ToastContainer />
         <GoogleMap
           ref={props.onMapLoad}
@@ -49,7 +56,7 @@ const Map = withScriptjs(
             );
           })}
         </GoogleMap>
-      </div>
+      </MapPage>
     );
   })
 );

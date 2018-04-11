@@ -3,36 +3,43 @@ import { Button } from '../../ui-kit/button';
 import { Heading } from '../../ui-kit/heading';
 import { device } from '../../ui-kit/device-breakpoints';
 import { Page } from '../../ui-kit/page-style';
+import { variables } from '../../ui-kit/variables';
 
 import styled from 'styled-components';
 
 export const Item = styled.div`
-  float: left;
-  margin: 10px;
-  width: 350px;
+  width: 100%;
+  border: 2px solid ${variables.colour.darkestPurple};
+  background-color: ${variables.colour.mediumPurple};
+  height: 44px;
+  align-items: center;
+  padding-left: 15px;
+  line-height: 2.3;
+  margin-bottom: 20px;
 `;
 
 export const InputWrapper = styled.div`
-  margin-left: 10px;
-  display: flex;
+  margin-bottom: 20px;
   align-items: left;
   justify-content: left;
-  flex-flow: column wrap;
-  align-content: left;
+  align-content: center;
   margin-bottom: 30px;
-
-  @media ${device.tablet} {
-    flex-direction: row;
-  }
-  @media ${device.laptop} {
-    flex-direction: row;
-  }
+  width: 90%;
+  max-width: 500px;
 `;
 
 export const CenteredButton = Button.extend`
-  margin-left: 20px;
-  display: block;
   align-items: center;
+`;
+
+const PageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const StyledInput = styled.input`
+  margin-right: 12px;
 `;
 
 export class LocationRating extends Component {
@@ -58,12 +65,12 @@ export class LocationRating extends Component {
     return (
       <Page>
         <Heading>{location.name}</Heading>
-        <div>
+        <PageWrapper>
           <InputWrapper>
             {this.accessibilityFeatures.map((feature, index) => (
               <Item key={index}>
                 <label htmlFor={`rate${index}`}>
-                  <input
+                  <StyledInput
                     checked={savedToDb ? false : null}
                     type="checkbox"
                     id={`rate${index}`}
@@ -77,7 +84,7 @@ export class LocationRating extends Component {
             ))}
           </InputWrapper>
           <CenteredButton onClick={this.handleOnClick}>Submit</CenteredButton>
-        </div>
+        </PageWrapper>
       </Page>
     );
   }
