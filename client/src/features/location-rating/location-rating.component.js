@@ -60,8 +60,9 @@ export class LocationRating extends Component {
       this.handleOnClick(event);
     }
   };
+  checkedBox = savedToDb => (savedToDb ? null : 'checked');
   render() {
-    const { savedToDb, location } = this.props;
+    const { checkedBox, location } = this.props;
     return (
       <Page>
         <Heading>{location.name}</Heading>
@@ -71,7 +72,7 @@ export class LocationRating extends Component {
               <label key={index} htmlFor={`rate${index}`}>
                 <Item key={index}>
                   <StyledInput
-                    checked={savedToDb ? false : null}
+                    checkedBox
                     type="checkbox"
                     id={`rate${index}`}
                     onClick={() =>
