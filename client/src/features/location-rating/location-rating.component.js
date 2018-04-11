@@ -68,8 +68,8 @@ export class LocationRating extends Component {
         <PageWrapper>
           <InputWrapper>
             {this.accessibilityFeatures.map((feature, index) => (
-              <Item key={index}>
-                <label htmlFor={`rate${index}`}>
+              <label key={index} htmlFor={`rate${index}`}>
+                <Item key={index}>
                   <StyledInput
                     checked={savedToDb ? false : null}
                     type="checkbox"
@@ -79,8 +79,8 @@ export class LocationRating extends Component {
                     }
                   />
                   {feature}
-                </label>
-              </Item>
+                </Item>
+              </label>
             ))}
           </InputWrapper>
           <CenteredButton onClick={this.handleOnClick}>Submit</CenteredButton>
