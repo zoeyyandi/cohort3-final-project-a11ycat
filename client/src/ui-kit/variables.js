@@ -11,7 +11,7 @@ export const variables = {
     red: '#EC3A2F',
     lightPurple: '#997A91',
     darkPurple: '#7E6D83',
-    darkestPurple: '#66556F',
+    darkestPurple: '#4a3d4d',
     mediumPurple: '#7C6B82',
     gold: '#D4A865'
   },
