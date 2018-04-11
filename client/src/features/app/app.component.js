@@ -9,14 +9,6 @@ import { LoadingIndicator } from '../list-item/list-loading.component';
 
 export class App extends Component {
   componentDidMount() {
-    apiService
-      .get('/someModels')
-      .then(function(response) {
-        console.log(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
     this.locationCall();
   }
 
