@@ -13,10 +13,10 @@ export const LoadingIndicator = () => (
   <Loader>
     <MDSpinner
       size={70}
-      color1="#75efb4"
-      color2="#62cc99"
-      color3="#4a9e75"
-      color4="#2e694d"
+      color1="#D4A865"
+      color2="#CA9544"
+      color3="#B38032"
+      color4="#93692A"
     />
     <p>LOADING...</p>
   </Loader>
