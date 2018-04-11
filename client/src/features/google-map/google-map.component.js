@@ -38,7 +38,7 @@ const Map = withScriptjs(
             const infoWindow = props.activeMarker === marker.key && (
               <InfoWindow onCloseClick={props.onInfoClose}>
                 <div>
-                  <h1>Name: {marker.name}</h1>
+                  <h1 style={{ color: 'black' }}>{marker.name}</h1>
                   <Ratings avgRating={marker.avgRating} />
                 </div>
               </InfoWindow>

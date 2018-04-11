@@ -19,11 +19,19 @@ export const Ratings = ({ avgRating }) => (
     {allratings.map(
       (_, i) =>
         i < avgRating ? (
-          <i key={i} style={{ color: '#ffb023' }} className="fa fa-star" />
+          <i
+            key={i}
+            style={{ color: '#ffb023', fontSize: '1.5em', margin: '2px' }}
+            className="fa fa-star"
+          />
         ) : (
           <i
             key={i}
-            style={{ color: variables.colour.lightGrey }}
+            style={{
+              color: variables.colour.lightGrey,
+              fontSize: '1.5em',
+              margin: '2px'
+            }}
             className="fa fa-star"
           />
         )
