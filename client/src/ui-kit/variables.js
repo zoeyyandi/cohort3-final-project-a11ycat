@@ -6,6 +6,7 @@ export const variables = {
     lightGrey: '#999999',
     black: '#000000',
     white: '#FFFFFF',
+    offwhite: '#FEFEFD',
     ivory: '#F8EFDD',
     teal: '#5CC5CE',
     red: '#EC3A2F',
