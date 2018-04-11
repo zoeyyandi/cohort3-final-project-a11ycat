@@ -34,8 +34,8 @@ const Map = withScriptjs(
           onClick={props.onMapClicked}
         >
           <Marker title="User" position={props.coords} />
-          {props.markers.map((marker, index) => {
-            const infoWindow = props.activeMarker === index && (
+          {props.markers.map(marker => {
+            const infoWindow = props.activeMarker === marker.key && (
               <InfoWindow onCloseClick={props.onInfoClose}>
                 <div>
                   <h1>Name: {marker.name}</h1>
@@ -46,10 +46,10 @@ const Map = withScriptjs(
             return (
               <Marker
                 {...marker}
-                key={index}
+                key={marker.key}
                 position={marker.position}
                 name={marker.name}
-                onClick={() => props.onMarkerClick(index)}
+                onClick={() => props.onMarkerClick(marker.key)}
               >
                 {infoWindow}
               </Marker>
@@ -64,30 +64,6 @@ const Map = withScriptjs(
 export class GoogleMapsComponent extends Component {
   componentDidMount() {
     this.props.fetchMapLocations();
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      markers: [
-        {
-          name: 'Harbourfront',
-          position: {
-            lat: 43.6399,
-            lng: -79.3782
-          },
-          avgRating: 3
-        },
-        {
-          name: 'Fort York',
-          position: {
-            lat: 43.639217,
-            lng: -79.400414
-          },
-          avgRating: 4
-        }
-      ]
-    };
   }
 
   onMarkerClick = activeMarker => {
@@ -113,7 +89,7 @@ export class GoogleMapsComponent extends Component {
           containerElement={<div style={{ height: `600px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
           coords={this.props.userCoords}
-          markers={this.state.markers}
+          markers={this.props.markers}
           activeMarker={this.props.activeMarker}
           onMarkerClick={this.onMarkerClick}
           onInfoClose={this.onInfoClose}
