@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   userLocation: {
     lat: 43.6532,
     lon: -79.3832
-  }
+  },
+  geolocationError: null
 };
 
 export const appReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -15,6 +16,11 @@ export const appReducer = (state = INITIAL_STATE, { type, payload }) => {
         ...{
           userLocation: { lat: payload['latitude'], lon: payload['longitude'] }
         }
+      };
+    case APP_TYPES.getUserLocationFailure:
+      return {
+        ...state,
+        geolocationError: payload
       };
     default:
       return state;

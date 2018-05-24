@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from '../../ui-kit/button';
 import { Heading } from '../../ui-kit/heading';
-import { device } from '../../ui-kit/device-breakpoints';
 import { Page } from '../../ui-kit/page-style';
 import { variables } from '../../ui-kit/variables';
 
@@ -62,7 +61,7 @@ export class LocationRating extends Component {
   };
   checkedBox = savedToDb => (savedToDb ? null : 'checked');
   render() {
-    const { checkedBox, location } = this.props;
+    const { location } = this.props;
     return (
       <Page>
         <Heading>{location.name}</Heading>

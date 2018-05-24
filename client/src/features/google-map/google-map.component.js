@@ -9,10 +9,7 @@ import {
 import { Ratings } from './map-rating.component';
 import { ToastContainer } from '../toast/toast.container';
 import { Page } from '../../ui-kit/page-style';
-import { styled } from 'styled-components';
-import { updateActiveMarker } from './google-map.actions';
 
-const google = window.google;
 const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 if (!googleMapsAPIKey)
   throw new Error('googleMapsAPIKey environment variable required');

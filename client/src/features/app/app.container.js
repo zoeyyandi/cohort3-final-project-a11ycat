@@ -12,7 +12,8 @@ const mapStateToProps = state => ({
   listLocations: state.listItemReducer.locations,
   lat: state.appReducer.userLocation.lat,
   lon: state.appReducer.userLocation.lon,
-  isLoading: state.listItemReducer.isLoading
+  isLoading: state.listItemReducer.isLoading,
+  geolocationError: state.appReducer.geolocationError
 });
 
 const mapDispatchToProps = {

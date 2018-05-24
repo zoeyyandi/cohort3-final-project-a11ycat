@@ -13,15 +13,10 @@ import './index.css';
 import reducer from './reducers';
 import { HeaderWithRouter } from './ui-kit/header';
 import createHistory from 'history/createBrowserHistory';
-import styled from 'styled-components';
 export const history = createHistory();
 
-const Wrapper = styled.div`
-  max-width: 900px;
-  margin: 0 auto;
-  height: auto;
-  min-height: 100%;
-`;
+////// Configure rules for ESLint to use.
+////// EsLint will look for specific accessibility errors in our code and display warnings
 
 if (process.env.NODE_ENV === 'development') {
   const a11y = require('react-a11y').default;

@@ -12,6 +12,11 @@ export const updateSearchInput = searchString => {
   };
 };
 
+export const errorHandler = error => ({
+  type: SEARCH_BAR_TYPES.error,
+  payload: error
+});
+
 export const addLocations = locations => {
   return {
     type: SEARCH_BAR_TYPES.addLocations,
@@ -37,16 +42,22 @@ export const fetchLocations = (searchString, lat, lng) => {
   return dispatch => {
     return fetch(URL)
       .then(res => res.json())
-      .then(data => {
-        const locations = data.predictions
-          .slice(0, 5)
-          .map(item => item.description);
-        if (locations.length > 0) {
-          dispatch(toggleAutoComplete(true));
+      .then(
+        data => {
+          const locations = data.predictions
+            .slice(0, 5)
+            .map(item => item.description);
+          if (locations.length > 0) {
+            dispatch(toggleAutoComplete(true));
+          }
+          dispatch(addLocations(locations));
+        },
+        err => {
+          console.log('err');
+          return err;
         }
-        dispatch(addLocations(locations));
-      })
-      .catch(error => console.log(error));
+      );
+    // .catch(error => console.log(error));
   };
 };
 

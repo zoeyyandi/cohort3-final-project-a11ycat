@@ -3,7 +3,8 @@ import {
   fetchLocations,
   updateSearchInput,
   textSearch,
-  errorNoInput
+  errorNoInput,
+  errorHandler
 } from './search-bar.actions';
 import { SearchBar } from './search-bar.component';
 import { toggleAutoComplete } from '../auto-complete-list/auto-complete-list.actions';
@@ -18,7 +19,8 @@ const mapDispatchToProps = {
   updateSearchInput,
   textSearch,
   toggleAutoComplete,
-  errorNoInput
+  errorNoInput,
+  errorHandler
 };
 
 export const SearchBarContainer = connect(mapStateToProps, mapDispatchToProps)(

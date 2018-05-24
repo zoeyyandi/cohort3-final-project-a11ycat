@@ -12,7 +12,7 @@ const Input = styled.input`
   border: none;
   padding-left: 10px;
   font-size: 1em;
-  font-family: 'Open Sans', sans-serif;  
+  font-family: 'Open Sans', sans-serif;
   border: 2px solid ${variables.colour.mediumPurple};
   &:focus {
     outline: none;
@@ -40,12 +40,19 @@ export const SearchBar = ({
   textSearch,
   toggleAutoComplete,
   userLocation,
-  errorNoInput
+  errorNoInput,
+  errorHandler
 }) => {
   const handleChange = event => {
     let input = event.target.value;
     updateSearchInput(input);
-    fetchLocations(input, userLocation.lat, userLocation.lon);
+    fetchLocations(input, userLocation.lat, userLocation.lon)
+      .then(err => {
+        if (err) {
+          errorHandler(err);
+        }
+      })
+      .catch(e => {});
   };
 
   const handleClick = event => {

@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { variables } from "./variables";
+import styled from 'styled-components';
 
 export const List = styled.ul`
   display: block;
