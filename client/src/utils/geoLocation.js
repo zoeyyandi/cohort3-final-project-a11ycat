@@ -14,7 +14,6 @@ export function getUserLocation() {
           res('done');
         },
         error => {
-          console.log('error', error);
           dispatch({
             type: APP_TYPES.getUserLocationFailure,
             payload: error
